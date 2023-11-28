@@ -4,7 +4,17 @@
 <title>Tiietd</title>
 <link rel="shortcut icon" type="image/jpg" href="images/logo1.png"/>
 <meta charset="utf-8">
+<meta name="description" content="Tiietd Nigeria Limited is a prolific and prospective Company that 
+  provides satisfactory services in the areas of cleaning and fumigation 
+  with Years of operational experience 
+  in integrated environmental and residential management which is second to none">
+<meta name="keywords" content="Tiietd, tiietd,T. ETD,TII ET D">
+<meta name="author" content="Vyborg">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tiietd.com/">
+<meta property="og:site_name" content="Tiietd Nigeria Limited">
+<meta property="og:image" itemprop="Tiietd Logo" content="https://tiietd.com/images/logo.jpeg">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 <link rel="stylesheet" href="fonts/icomoon/style.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -70,7 +80,7 @@
 <div class="slide">
 <h1 class="text-uppercase" data-aos="fade-up">Who are we?</h1>
 <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100">
-  T. ETD Nigeria Limited is a prolitic and prospective Company that 
+  T. ETD Nigeria Limited is a prolific and prospective Company that 
   provides satisfactory services in the areas of cleaning and fumigation 
   with Years of operational experience 
   in integrated environmental and residential management which is second to none.  
@@ -350,41 +360,68 @@ At TII ET D, we are professional, who understands the importance of a clean and 
 </p>
 </div>
 </div>
+<?php
+  if(isset($_POST['sendform'])){
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $subject = $_POST['subject'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $to = 'tiietd.nig.ltd@gmail.com';
+
+    $headers = 'From:'.$email;
+
+    $isSent = mail($to, $subject, $message, $headers);
+
+    if ($isSent) {
+
+    echo '<script>
+    alert("Email sent successfully.")</script>';
+
+    } else {
+
+      echo '<script>
+      alert("Error sending mail, try again")</script>';
+
+    }
+
+  }
+?>
 <div class="row">
 <div class="col-md-12 mb-5">
-<form action="#" class="p-5 bg-white">
+<form action="index.php" class="p-5 bg-white" method="POST">
 <h2 class="h4 text-black mb-5">Contact Form</h2>
 <div class="row form-group">
 <div class="col-md-6 mb-3 mb-md-0">
 <label class="text-black" for="fname">First Name</label>
-<input type="text" id="fname" class="form-control">
+<input type="text" id="fname" name="fname" class="form-control" required>
 </div>
 <div class="col-md-6">
 <label class="text-black" for="lname">Last Name</label>
-<input type="text" id="lname" class="form-control">
+<input type="text" id="lname" name="lname" class="form-control" required>
 </div>
 </div>
 <div class="row form-group">
 <div class="col-md-12">
 <label class="text-black" for="email">Email</label>
-<input type="email" id="email" class="form-control">
+<input type="email" id="email" name="email" class="form-control" required>
 </div>
 </div>
 <div class="row form-group">
 <div class="col-md-12">
 <label class="text-black" for="subject">Subject</label>
-<input type="subject" id="subject" class="form-control">
+<input type="subject" id="subject" name="subject" class="form-control" required>
 </div>
 </div>
 <div class="row form-group">
 <div class="col-md-12">
 <label class="text-black" for="message">Message</label>
-<textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+<textarea name="message" id="message" cols="30" rows="7" name="message" class="form-control" placeholder="Write your notes or questions here..." required></textarea>
 </div>
 </div>
 <div class="row form-group">
 <div class="col-md-12">
-<input type="submit" value="Send Message" class="btn btn-success btn-md text-white" style="background-color: green;">
+<input type="submit" value="Send Message" class="btn btn-success btn-md text-white" name="sendform" style="background-color: green;">
 </div>
 </div>
 </form>
@@ -440,7 +477,7 @@ At TII ET D, we are professional, who understands the importance of a clean and 
 
 <p>Copyright &copy;
 </script><script>document.write(new Date().getFullYear());</script> Developed
- by <a href="#" target="_blank">Vyborg</a>
+ by <a href="mailto:vyborgos@protonmail.com" target="_blank">Vyborg</a>
 </p>
 
 </div>
